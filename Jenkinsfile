@@ -36,7 +36,7 @@ pipeline {
     post {
         success {
             echo 'CI/CD pipeline completed successfully.'
-            echo 'Open http://YOUR_SERVER_IP:8080'
+            echo 'Open http://YOUR_SERVER_IP:8084'
         }
 
         failure {
