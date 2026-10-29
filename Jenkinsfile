@@ -25,6 +25,7 @@ pipeline {
         '''
       }
     }
+  }
     post {
         success {
             echo 'CI/CD pipeline completed successfully.'
@@ -38,6 +39,6 @@ pipeline {
         always {
             sh 'docker rm -f apache-test >/dev/null 2>&1 || true'
         }
+    }
   }
-}
-}       
+
