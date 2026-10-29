@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment {
+        IMAGE_NAME = 'apache-website'
+        CONTAINER_NAME = 'apache-website'
+        APP_PORT = '8084'
+    }
   stages {
     stage('checkout') {
       steps {
@@ -9,7 +14,9 @@ pipeline {
     }
       stage('build') {
         steps {
-          docker build -t httpd:latest
+          sh '''
+          docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} .
+          '''
         }
       }
     stage(''deploy) {
